@@ -95,7 +95,6 @@ Make a voice call to a Telegram user with TTS.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `api_key` | string | Yes | MCP server API Key for authentication |
 | `username` | string | Yes | Telegram username (e.g. @myuser) or phone number (e.g. +331234567890) |
 | `text` | string | Yes | Text message to be spoken (max 256 characters) |
 | `lang` | string | No | Voice language (default: en-US-Standard-B) |

@@ -13,24 +13,12 @@ from fastmcp import FastMCP
 # Initialize FastMCP server
 mcp = FastMCP("CallMeBot Telegram Voice Call")
 
-# API Key for authentication
-API_KEY = os.getenv("MCP_API_KEY", "")
-
 # CallMeBot API base URL
 CALLMEBOT_API_URL = "http://api.callmebot.com/start.php"
 
 
-def verify_api_key(provided_key: str) -> bool:
-    """Verify if the provided API Key is correct"""
-    if not API_KEY:
-        # If API Key is not set, allow all requests (for testing only)
-        return True
-    return provided_key == API_KEY
-
-
 @mcp.tool(description="Make a voice call to a Telegram user with TTS (Text-to-Speech)")
 async def call_telegram_user(
-    api_key: str,
     username: str,
     text: str,
     lang: str = "en-US-Standard-B",
@@ -42,7 +30,6 @@ async def call_telegram_user(
     Make a voice call to a Telegram user.
 
     Args:
-        api_key: MCP server API Key for authentication
         username: Telegram username (e.g. @myuser) or phone number (e.g. +331234567890)
         text: Text message to be spoken (max 256 characters)
         lang: Voice language, default en-US-Standard-B. Check Google Cloud TTS for available voices
@@ -53,14 +40,6 @@ async def call_telegram_user(
     Returns:
         Dictionary containing API call result
     """
-    # Verify API Key
-    if not verify_api_key(api_key):
-        return {
-            "success": False,
-            "error": "Invalid API Key",
-            "message": "Please provide a valid API Key"
-        }
-
     # Validate required parameters
     if not username:
         return {
