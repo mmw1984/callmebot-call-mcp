@@ -13,6 +13,8 @@ An MCP (Model Context Protocol) server for making voice calls to Telegram users 
 
 ## Deploy to Vercel
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmmw1984%2Fcallmebot-call-mcp&env=MCP_API_KEY&envDescription=API%20key%20for%20the%20MCP%20server)
+
 ### 1. Install Vercel CLI
 
 ```bash
@@ -85,6 +87,14 @@ python run_local.py
 }
 ```
 
+## Poke
+
+Add the information to [![Poke's settings](https://poke.com/settings/connections)
+
+Link: https://your.doamin/mcp
+API key: Variable setted up in MCP_API_KEY.
+
+
 ## MCP Tool
 
 ### `call_telegram_user`
@@ -103,6 +113,10 @@ Make a voice call to a Telegram user with TTS.
 | `timeout` | int | No | Call timeout in seconds (default: 30) |
 
 ## Common Language Codes
+
+Official link: https://cloud.google.com/text-to-speech/docs/voices
+
+**Choose ONLY standard voice**
 
 | Language | Voice Code |
 |----------|------------|
@@ -127,12 +141,14 @@ Make a voice call to a Telegram user with TTS.
 
 ## Prerequisites
 
-1. **Authorize CallMeBot**: Send `/start` to @CallMeBot_txtbot on Telegram before using.
+1. **Authorize CallMeBot**: Send `/start` to @CallMeBot_txtbot on Telegram before using or by opening this link: https://api2.callmebot.com/txt/login.php
 
-2. **iOS Bug**: There is a known VoIP protocol issue with Telegram iOS that may prevent audio playback.
+2. **Add to contact**: Add the bot to contact and sent one text to the bot.
 
 3. **Text Limit**: Text message is limited to 256 characters.
 
-## License
+## When facing spam error
 
-MIT
+**Please isit the official solution**: https://www.callmebot.com/blog/spam-error/
+
+Tips: You may try to remove the bot and manually choose the bot from the contact and send a message to solve the issue.
